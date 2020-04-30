@@ -11,13 +11,13 @@ ENV GRAFANA_VERSION=6.5.3
 
 RUN usermod -a -G dialout root
 
-RUN apt-get update && apt-get install -y --force-yes \
+RUN apt-get update && apt-get install -y \
 	git \
 	nano \
 	build-essential \
 	wget \
 	python \
-	supervisor \
+	supervisor
 	
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
