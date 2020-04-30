@@ -3,19 +3,16 @@ FROM ubuntu:18.04
 MAINTAINER Yannic Wilkening
 
 EXPOSE 3003
-EXPOSE 8086
 
-# Default versions
+# Tools
 ENV INFLUXDB_VERSION=1.7.10
 ENV GRAFANA_VERSION=6.5.3
-
-RUN usermod -a -G dialout root
 
 RUN apt-get update && apt-get install -y \
 	git \
 	nano \
-	# build-essential \
 	wget \
+	mosquitto \
 	python3 \
 	supervisor \
 	libfontconfig
@@ -37,13 +34,18 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
 #	cp ../libde_rest_plugin.so /usr/share/deCONZ/plugins
 
 # Supervisord configuration file
-COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Influxdb configuration file
-COPY conf/influxdb.conf /etc/influxdb/influxdb.conf
+COPY conf/influxdb/influxdb.conf /etc/influxdb/influxdb.conf
+
+# Mosquitto configuration file
+COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
+# Username: wlanthermo Passowrd: 5G=o7&d83@&dU&4c
+COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
 
 # Grafana configuration file
-COPY conf/grafana.ini /etc/grafana/grafana.ini
+COPY conf/grafana/grafana.ini /etc/grafana/grafana.ini
 
 ADD start.sh /
 RUN chmod +x ./start.sh
