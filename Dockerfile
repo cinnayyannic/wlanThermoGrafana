@@ -14,10 +14,11 @@ RUN usermod -a -G dialout root
 RUN apt-get update && apt-get install -y \
 	git \
 	nano \
-	build-essential \
+	# build-essential \
 	wget \
-	python \
-	supervisor
+	python3 \
+	supervisor \
+	libfontconfig \
 	
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
