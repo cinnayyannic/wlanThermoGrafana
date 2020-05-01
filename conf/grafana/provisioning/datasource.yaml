@@ -1,0 +1,13 @@
+# config file version
+apiVersion: 1
+
+datasources:
+-  name: 'InfluxDB'
+   type: 'influxdb'
+   access: 'proxy'
+   org_id: 1
+   url: 'http://localhost:8086'
+   database: 'wlanthermo'
+   is_default: true
+   version: 1
+   editable: true
