@@ -3,8 +3,8 @@ FROM ubuntu:18.04
 MAINTAINER Yannic Wilkening
 
 EXPOSE 3003
-#DEBUG
 EXPOSE 1883
+#DEBUG
 EXPOSE 8086
 
 # Tools
@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
 	git \
 	nano \
 	wget \
+	curl \
 	mosquitto \
 	python3 \
 	supervisor \

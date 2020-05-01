@@ -8,6 +8,6 @@ datasources:
   org_id: 1
   url: 'http://localhost:8086'
   database: 'wlanthermo'
-  is_default: true
+  isDefault: true
   version: 1
   editable: true
