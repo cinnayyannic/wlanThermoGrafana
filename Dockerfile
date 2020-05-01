@@ -49,9 +49,9 @@ COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
 
 # Grafana configuration file
 COPY conf/grafana/grafana.ini /etc/grafana/grafana.ini
+COPY conf/grafana/wlanthermo.json /var/lib/grafana/dashboards/wlanthermo.json
 COPY conf/grafana/provisioning/datasource.yaml /etc/grafana/provisioning/datasources/datasource.yaml
 COPY conf/grafana/provisioning/dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
-COPY conf/grafana/provisioning/wlanthermo.json /var/lib/grafana/dashboards/wlanthermo.json
 
 ADD start.sh /
 RUN chmod +x ./start.sh
