@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1588357700088,
+  "iteration": 1588409297791,
   "links": [],
   "panels": [
     {
@@ -86,7 +86,7 @@
           "measurement": "channel 1",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 1\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 1\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -126,7 +126,7 @@
           "measurement": "channel 2",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 2\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 2\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -166,7 +166,7 @@
           "measurement": "channel 3",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 3\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 3\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -206,7 +206,7 @@
           "measurement": "channel 4",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 4\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 4\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -246,7 +246,7 @@
           "measurement": "channel 5",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 5\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 5\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series",
@@ -286,7 +286,7 @@
           "measurement": "channel 6",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 6\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 6\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "F",
           "resultFormat": "time_series",
@@ -326,7 +326,7 @@
           "measurement": "channel 7",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 7\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 7\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "G",
           "resultFormat": "time_series",
@@ -366,7 +366,7 @@
           "measurement": "channel 8",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 8\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM \"Channel 8\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "H",
           "resultFormat": "time_series",
@@ -470,13 +470,6 @@
       "renderer": "flot",
       "repeat": "channels",
       "repeatDirection": "h",
-      "scopedVars": {
-        "channels": {
-          "selected": false,
-          "text": "Channel 1",
-          "value": "Channel 1"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -501,7 +494,7 @@
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -539,7 +532,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -577,649 +570,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "[[channels]]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "celsius",
-          "label": "°C",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 8,
-        "y": 9
-      },
-      "hiddenSeries": false,
-      "id": 5,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxPerRow": 3,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeat": null,
-      "repeatDirection": "h",
-      "repeatIteration": 1588357700088,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "channels": {
-          "selected": false,
-          "text": "channel 1",
-          "value": "channel 1"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "[[channels]] ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "/^$channels$/",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Max",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Min",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "[[channels]]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "celsius",
-          "label": "°C",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 16,
-        "y": 9
-      },
-      "hiddenSeries": false,
-      "id": 6,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxPerRow": 3,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeat": null,
-      "repeatDirection": "h",
-      "repeatIteration": 1588357700088,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "channels": {
-          "selected": false,
-          "text": "Channel 2",
-          "value": "Channel 2"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "[[channels]] ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "/^$channels$/",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Max",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Min",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "[[channels]]",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "celsius",
-          "label": "°C",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 0,
-        "y": 14
-      },
-      "hiddenSeries": false,
-      "id": 7,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxPerRow": 3,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "repeat": null,
-      "repeatDirection": "h",
-      "repeatIteration": 1588357700088,
-      "repeatPanelId": 4,
-      "scopedVars": {
-        "channels": {
-          "selected": false,
-          "text": "channel 2",
-          "value": "channel 2"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "[[channels]] ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "/^$channels$/",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Max",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Min",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(none)",
+          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -1339,5 +690,5 @@
   "timezone": "",
   "title": "Temperature",
   "uid": "7ORXEd6Wk",
-  "version": 31
+  "version": 4
 }
