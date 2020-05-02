@@ -18,8 +18,6 @@ RUN apt-get update && apt-get install -y \
 	python3 \
 	supervisor \
 	libfontconfig
-	
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
 	dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && \
@@ -31,7 +29,6 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
 	dpkg -i mosquitto_${MOSQUITTO_VERSION}_amd64.deb && \
 	rm mosquitto_${MOSQUITTO_VERSION}_amd64.deb
 
-
 RUN git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
 	cd wlanThermoGrafanaBridge && \
 	git fetch && git fetch --tags && \
@@ -39,6 +36,8 @@ RUN git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
 	pip3 install -r ./requirements.txt && \
 	mv wlanThermoGrafanaBridge.py /usr/sbin && \
 	cd .. && rm -rf wlanThermoGrafanaBridge
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Supervisord configuration file
 COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
