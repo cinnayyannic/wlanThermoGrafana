@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 	nano \
 	wget \
 	python3 \
+	python3-pip \
 	supervisor \
 	libfontconfig \
 	libwebsockets8 \
