@@ -5,6 +5,11 @@ MAINTAINER Yannic Wilkening
 EXPOSE 3003
 EXPOSE 1883
 
+# Mount folders
+# /var/lib/influxdb <- for persistant database storage
+# /var/lib/grafana <- for persistant grafana storage
+# /var/lib/mosquitto <- for persistant mqtt database storage
+
 # Tools
 ENV INFLUXDB_VERSION=1.7.10
 ENV GRAFANA_VERSION=6.5.3
@@ -17,7 +22,9 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	python3 \
 	supervisor \
-	libfontconfig
+	libfontconfig \
+	libwebsockets8 \
+	libwrap0
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
 	dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && \
