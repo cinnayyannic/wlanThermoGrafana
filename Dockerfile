@@ -8,7 +8,7 @@ EXPOSE 1883
 # Tools
 ENV INFLUXDB_VERSION=1.7.10
 ENV GRAFANA_VERSION=6.5.3
-ENV WLANTHERMOGRAFANABRIDGE_VERSION=v1.0.1
+ENV WLANTHERMOGRAFANABRIDGE_VERSION=1.0.1
 
 RUN apt-get update && apt-get install -y \
 	git \
@@ -33,7 +33,7 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
 RUN git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
 	cd wlanThermoGrafanaBridge && \
 	git fetch && git fetch --tags && \
-	git checkout ${WLANTHERMOGRAFANABRIDGE_VERSION} && \
+	git checkout v${WLANTHERMOGRAFANABRIDGE_VERSION} && \
 	pip3 install -r ./requirements.txt && \
 	mv wlanThermoGrafanaBridge.py /usr/sbin && \
 	cd .. && rm -rf wlanThermoGrafanaBridge
@@ -46,7 +46,6 @@ COPY conf/influxdb/influxdb.conf /etc/influxdb/influxdb.conf
 
 # Mosquitto configuration file
 COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
-# Username: wlanthermo Passowrd: 5G=o7&d83@&dU&4c
 COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
 
 # Grafana configuration file
