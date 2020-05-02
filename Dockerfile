@@ -4,12 +4,11 @@ MAINTAINER Yannic Wilkening
 
 EXPOSE 3003
 EXPOSE 1883
-#DEBUG
-EXPOSE 8086
 
 # Tools
 ENV INFLUXDB_VERSION=1.7.10
 ENV GRAFANA_VERSION=6.5.3
+ENV WLANTHERMOGRAFANABRIDGE=v1.0.1
 
 RUN apt-get update && apt-get install -y \
 	git \
@@ -18,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	mosquitto \
 	python3 \
+	python3-pip \
 	supervisor \
 	libfontconfig
 	
@@ -30,12 +30,12 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
     dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && \
 	rm grafana_${GRAFANA_VERSION}_amd64.deb
 
-#RUN git clone https://github.com/dresden-elektronik/deconz-rest-plugin.git && \
-#	cd deconz-rest-plugin && \
-#	git checkout -b mybranch V2_04_77 && \
-#	qmake && \
-#	make -j2 && \
-#	cp ../libde_rest_plugin.so /usr/share/deCONZ/plugins
+RUN cd /usr/sbin && \
+	git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
+	cd wlanThermoGrafanaBridge && \
+	git fetch && git fetch --tags && \
+	git checkout ${WLANTHERMOGRAFANABRIDGE} && \
+	pip3 install -r ./requirements.txt
 
 # Supervisord configuration file
 COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
