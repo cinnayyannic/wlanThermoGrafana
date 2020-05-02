@@ -61,14 +61,11 @@ COPY conf/grafana/grafana.ini /etc/grafana/grafana.ini
 COPY conf/grafana/provisioning/datasource.yaml /etc/grafana/provisioning/datasources/datasource.yaml
 COPY conf/grafana/provisioning/dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
 
-COPY conf/grafana/wlanthermo.json /var/lib/grafana/dashboards/wlanthermo.json
-COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
-
 # Copy files that should be visible in user volume mount location to deploy folder
 # start.sh script will copy the files to the real location folder
 # otherwise preexisting files wont show inside mounted volume 
-#COPY conf/grafana/wlanthermo.json /deploy/grafana/wlanthermo.json
-#COPY conf/mosquitto/mosquitto.passwd /deploy/mosquitto/mosquitto.passwd
+COPY conf/grafana/wlanthermo.json /deploy/grafana/wlanthermo.json
+COPY conf/mosquitto/mosquitto.passwd /deploy/mosquitto/mosquitto.passwd
 
 ADD start.sh /
 RUN chmod +x ./start.sh
