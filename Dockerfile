@@ -8,7 +8,7 @@ EXPOSE 1883
 # Tools
 ENV INFLUXDB_VERSION=1.7.10
 ENV GRAFANA_VERSION=6.5.3
-ENV WLANTHERMOGRAFANABRIDGE=v1.0.1
+ENV WLANTHERMOGRAFANABRIDGE_VERSION=v1.0.1
 
 RUN apt-get update && apt-get install -y \
 	git \
@@ -30,12 +30,13 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
     dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && \
 	rm grafana_${GRAFANA_VERSION}_amd64.deb
 
-RUN cd /usr/sbin && \
-	git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
+RUN git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
 	cd wlanThermoGrafanaBridge && \
 	git fetch && git fetch --tags && \
-	git checkout ${WLANTHERMOGRAFANABRIDGE} && \
-	pip3 install -r ./requirements.txt
+	git checkout ${WLANTHERMOGRAFANABRIDGE_VERSION} && \
+	pip3 install -r ./requirements.txt && \
+	mv wlanThermoGrafanaBridge.py /usr/sbin && \
+	cd .. && rm -rf wlanThermoGrafanaBridge
 
 # Supervisord configuration file
 COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
