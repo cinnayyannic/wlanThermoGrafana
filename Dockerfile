@@ -4,6 +4,7 @@ MAINTAINER Yannic Wilkening
 
 EXPOSE 3003
 EXPOSE 1883
+EXPOSE 8086
 
 # Mount folders
 # /var/lib/influxdb <- for persistant database storage
