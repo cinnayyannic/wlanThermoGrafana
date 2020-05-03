@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1588507757673,
+  "iteration": 1588543701649,
   "links": [],
   "panels": [
     {
@@ -33,10 +33,10 @@
       "options": {
         "fieldOptions": {
           "calcs": [
-            "mean"
+            "min"
           ],
           "defaults": {
-            "decimals": 1,
+            "decimals": 0,
             "mappings": [
               {
                 "id": 0,
@@ -46,7 +46,7 @@
                 "value": "null"
               }
             ],
-            "max": 3.6,
+            "max": 100,
             "min": 0,
             "nullValueMode": "connected",
             "thresholds": [
@@ -56,14 +56,14 @@
               },
               {
                 "color": "#EAB839",
-                "value": 1.5
+                "value": 20
               },
               {
                 "color": "green",
-                "value": 3.3
+                "value": 40
               }
             ],
-            "unit": "volt"
+            "unit": "percent"
           },
           "override": {},
           "values": false
@@ -75,35 +75,25 @@
       "pluginVersion": "6.5.3",
       "targets": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
+          "groupBy": [],
+          "measurement": "System",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT last(\"soc\") FROM \"System\" WHERE $timeFilter",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "soc"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
@@ -112,18 +102,105 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "Battery",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 11,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "min"
+          ],
+          "defaults": {
+            "decimals": 0,
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": -120,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": -90
+              },
+              {
+                "color": "green",
+                "value": -67
+              }
+            ],
+            "unit": "dBm"
+          },
+          "override": {},
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.5.3",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "System",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"rssi\") FROM \"System\" WHERE $timeFilter",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rssi"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "RSSI",
       "transparent": true,
       "type": "gauge"
     },
     {
       "columns": [],
       "datasource": null,
-      "fontSize": "100%",
+      "fontSize": "90%",
       "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
+        "h": 5,
+        "w": 3,
+        "x": 21,
         "y": 0
       },
       "id": 9,
@@ -139,64 +216,98 @@
           "alias": "Time",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "pattern": "Time",
-          "type": "date"
-        },
-        {
-          "alias": "",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
+          "type": "hidden"
         }
       ],
       "targets": [
         {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
+          "alias": "HW version",
+          "groupBy": [],
+          "hide": false,
+          "measurement": "System settings",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "A",
+          "query": "SELECT last(\"hwversion\") FROM \"System settings\" WHERE $timeFilter",
+          "rawQuery": false,
+          "refId": "D",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "value"
+                  "hwversion"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "last"
               }
             ]
           ],
+          "slimit": "",
+          "tags": []
+        },
+        {
+          "alias": "SW version",
+          "groupBy": [],
+          "measurement": "System settings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"version\") FROM \"System settings\" WHERE $timeFilter",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "version"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "slimit": "",
+          "tags": []
+        },
+        {
+          "alias": "Hostname",
+          "groupBy": [],
+          "measurement": "System settings",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"host\") FROM \"System settings\" WHERE $timeFilter",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "host"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "slimit": "",
           "tags": []
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
-      "transform": "timeseries_to_columns",
+      "title": "System",
+      "transform": "timeseries_to_rows",
+      "transparent": true,
       "type": "table"
     },
     {
@@ -209,10 +320,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 9,
+        "h": 10,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 2,
@@ -623,7 +734,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 13
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 4,
@@ -836,10 +947,10 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 13
+        "y": 15
       },
       "hiddenSeries": false,
-      "id": 5,
+      "id": 12,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -866,7 +977,7 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "h",
-      "repeatIteration": 1588507757673,
+      "repeatIteration": 1588543701649,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -1039,7 +1150,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "30s",
   "schemaVersion": 21,
   "style": "dark",
   "tags": [],
@@ -1076,8 +1187,8 @@
     ]
   },
   "time": {
-    "from": "2020-05-02T20:40:53.940Z",
-    "to": "2020-05-02T20:46:54.018Z"
+    "from": "now-30m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1094,7 +1205,7 @@
     ]
   },
   "timezone": "",
-  "title": "Temperature",
+  "title": "Wlanthermo Nano",
   "uid": "7ORXEd6Wk",
-  "version": 2
+  "version": 33
 }
