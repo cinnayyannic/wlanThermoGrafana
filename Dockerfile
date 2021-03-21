@@ -4,7 +4,6 @@ MAINTAINER Yannic Wilkening
 
 EXPOSE 3003
 EXPOSE 1883
-EXPOSE 8086
 
 # Mount folders
 # /var/lib/influxdb <- for persistant database storage
@@ -63,10 +62,8 @@ COPY conf/grafana/wlanthermo.json /etc/grafana/provisioning/dashboards/wlantherm
 COPY conf/grafana/provisioning/datasource.yaml /etc/grafana/provisioning/datasources/datasource.yaml
 COPY conf/grafana/provisioning/dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
 
-# Copy files that should be visible in user volume mount location to deploy folder
-# start.sh script will copy the files to the real location folder
-# otherwise preexisting files wont show inside mounted volume 
-COPY conf/mosquitto/mosquitto.passwd /deploy/mosquitto/mosquitto.passwd
+# Mount /var/lib/mosquitto and place own mosquitto.passwd file inside to change default credentials
+COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
 
 ADD start.sh /
 RUN chmod +x ./start.sh
