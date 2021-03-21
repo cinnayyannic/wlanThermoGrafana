@@ -55,7 +55,7 @@ COPY conf/influxdb/influxdb.conf /etc/influxdb/influxdb.conf
 
 # Mosquitto configuration file
 COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
-# Mount /var/lib/mosquitto and place own mosquitto.passwd file inside to change default credentials
+# Mount /conf folder and place own mosquitto.passwd file inside to change default credentials
 COPY conf/mosquitto/mosquitto.passwd /conf/mosquitto.passwd
 
 # Grafana configuration file
