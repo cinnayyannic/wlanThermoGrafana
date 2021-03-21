@@ -55,15 +55,14 @@ COPY conf/influxdb/influxdb.conf /etc/influxdb/influxdb.conf
 
 # Mosquitto configuration file
 COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
+# Mount /var/lib/mosquitto and place own mosquitto.passwd file inside to change default credentials
+COPY conf/mosquitto/mosquitto.passwd /etc/mosquitto/mosquitto.passwd
 
 # Grafana configuration file
 COPY conf/grafana/grafana.ini /etc/grafana/grafana.ini
 COPY conf/grafana/wlanthermo.json /etc/grafana/provisioning/dashboards/wlanthermo.json
 COPY conf/grafana/provisioning/datasource.yaml /etc/grafana/provisioning/datasources/datasource.yaml
 COPY conf/grafana/provisioning/dashboard.yaml /etc/grafana/provisioning/dashboards/dashboard.yaml
-
-# Mount /var/lib/mosquitto and place own mosquitto.passwd file inside to change default credentials
-COPY conf/mosquitto/mosquitto.passwd /var/lib/mosquitto/mosquitto.passwd
 
 ADD start.sh /
 RUN chmod +x ./start.sh
