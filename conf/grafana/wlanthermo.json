@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1588543701649,
+  "iteration": 1617378354744,
   "links": [],
   "panels": [
     {
@@ -80,7 +80,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "SELECT last(\"soc\") FROM \"System\" WHERE $timeFilter",
-          "rawQuery": false,
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -722,18 +722,134 @@
       }
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "decimals": 1,
+      "format": "celsius",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 15
+      },
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "repeat": "channels",
+      "repeatDirection": "v",
+      "scopedVars": {
+        "channels": {
+          "selected": false,
+          "text": "Channel 1",
+          "value": "Channel 1"
+        }
+      },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "[[channels]] ($tag_alias)",
+          "groupBy": [],
+          "measurement": "/^$channels$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temp"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "0,0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "singlestat",
+      "valueFontSize": "110%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
       "decimals": 2,
+      "description": "",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 0,
+        "w": 21,
+        "x": 3,
         "y": 15
       },
       "hiddenSeries": false,
@@ -763,10 +879,10 @@
       "points": false,
       "renderer": "flot",
       "repeat": "channels",
-      "repeatDirection": "h",
+      "repeatDirection": "v",
       "scopedVars": {
         "channels": {
-          "selected": true,
+          "selected": false,
           "text": "Channel 1",
           "value": "Channel 1"
         }
@@ -792,10 +908,11 @@
               "type": "fill"
             }
           ],
+          "hide": false,
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT mean(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -816,7 +933,7 @@
           "tags": []
         },
         {
-          "alias": "Max",
+          "alias": "[[channels]] ($tag_alias) Max",
           "groupBy": [
             {
               "params": [
@@ -854,7 +971,7 @@
           "tags": []
         },
         {
-          "alias": "Min",
+          "alias": "[[channels]] ($tag_alias) Min",
           "groupBy": [
             {
               "params": [
@@ -935,22 +1052,140 @@
       }
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "decimals": 1,
+      "format": "celsius",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 20
+      },
+      "id": 14,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "repeat": null,
+      "repeatDirection": "v",
+      "repeatIteration": 1617378354744,
+      "repeatPanelId": 13,
+      "scopedVars": {
+        "channels": {
+          "selected": false,
+          "text": "Channel 2",
+          "value": "Channel 2"
+        }
+      },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "[[channels]] ($tag_alias)",
+          "groupBy": [],
+          "measurement": "/^$channels$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temp"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "0,0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "singlestat",
+      "valueFontSize": "110%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": null,
       "decimals": 2,
+      "description": "",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 15
+        "w": 21,
+        "x": 3,
+        "y": 20
       },
       "hiddenSeries": false,
-      "id": 12,
+      "id": 15,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -976,12 +1211,12 @@
       "points": false,
       "renderer": "flot",
       "repeat": null,
-      "repeatDirection": "h",
-      "repeatIteration": 1588543701649,
+      "repeatDirection": "v",
+      "repeatIteration": 1617378354744,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
-          "selected": true,
+          "selected": false,
           "text": "Channel 2",
           "value": "Channel 2"
         }
@@ -1007,10 +1242,11 @@
               "type": "fill"
             }
           ],
+          "hide": false,
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT mean(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1031,7 +1267,7 @@
           "tags": []
         },
         {
-          "alias": "Max",
+          "alias": "[[channels]] ($tag_alias) Max",
           "groupBy": [
             {
               "params": [
@@ -1069,7 +1305,7 @@
           "tags": []
         },
         {
-          "alias": "Min",
+          "alias": "[[channels]] ($tag_alias) Min",
           "groupBy": [
             {
               "params": [
@@ -1150,7 +1386,7 @@
       }
     }
   ],
-  "refresh": "30s",
+  "refresh": false,
   "schemaVersion": 21,
   "style": "dark",
   "tags": [],
@@ -1159,10 +1395,10 @@
       {
         "allValue": null,
         "current": {
-          "text": "Channel 1 + Channel 2",
+          "tags": [],
+          "text": "All",
           "value": [
-            "Channel 1",
-            "Channel 2"
+            "$__all"
           ]
         },
         "datasource": "InfluxDB",
@@ -1187,8 +1423,8 @@
     ]
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2021-04-01T18:23:21.331Z",
+    "to": "2021-04-01T19:10:44.582Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1207,5 +1443,5 @@
   "timezone": "",
   "title": "Wlanthermo Nano",
   "uid": "7ORXEd6Wk",
-  "version": 33
+  "version": 7
 }
