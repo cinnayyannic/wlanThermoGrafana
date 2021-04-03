@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1617378354744,
+  "iteration": 1617401350612,
   "links": [],
   "panels": [
     {
@@ -327,6 +327,7 @@
       },
       "hiddenSeries": false,
       "id": 2,
+      "interval": "",
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -353,7 +354,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Channel 1 ($tag_alias)",
+          "alias": "$tag_alias  ($tag_channel)",
           "groupBy": [
             {
               "params": [
@@ -378,289 +379,9 @@
           "measurement": "channel 1",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 1\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT median(\"temp\") FROM \"Temperature\" WHERE $timeFilter GROUP BY time(30s), \"channel\", \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 2 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 2",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 2\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 3 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 3",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 3\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 4 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 4",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 4\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 5 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 5",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 5\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 6 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 6",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 6\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 7 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 7",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 7\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "G",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "temp"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "median"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "Channel 8 ($tag_alias)",
-          "groupBy": [
-            {
-              "params": [
-                "30s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "channel 8",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT median(\"temp\") FROM \"Channel 8\" WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
-          "rawQuery": true,
-          "refId": "H",
           "resultFormat": "time_series",
           "select": [
             [
@@ -779,7 +500,7 @@
       "repeatDirection": "v",
       "scopedVars": {
         "channels": {
-          "selected": false,
+          "selected": true,
           "text": "Channel 1",
           "value": "Channel 1"
         }
@@ -795,13 +516,13 @@
       "tableColumn": "",
       "targets": [
         {
-          "alias": "[[channels]] ($tag_alias)",
+          "alias": "[[channels]]",
           "groupBy": [],
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": false,
+          "query": "SELECT last(\"temp\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -882,7 +603,7 @@
       "repeatDirection": "v",
       "scopedVars": {
         "channels": {
-          "selected": false,
+          "selected": true,
           "text": "Channel 1",
           "value": "Channel 1"
         }
@@ -893,7 +614,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "[[channels]] ($tag_alias)",
+          "alias": "$tag_alias",
           "groupBy": [
             {
               "params": [
@@ -912,7 +633,7 @@
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT mean(\"temp\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -933,7 +654,7 @@
           "tags": []
         },
         {
-          "alias": "[[channels]] ($tag_alias) Max",
+          "alias": "$tag_alias (max)",
           "groupBy": [
             {
               "params": [
@@ -950,7 +671,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT median(\"max\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -971,7 +692,7 @@
           "tags": []
         },
         {
-          "alias": "[[channels]] ($tag_alias) Min",
+          "alias": "$tag_alias (min)",
           "groupBy": [
             {
               "params": [
@@ -988,7 +709,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT median(\"min\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -1107,11 +828,11 @@
       ],
       "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617378354744,
+      "repeatIteration": 1617401350612,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
-          "selected": false,
+          "selected": true,
           "text": "Channel 2",
           "value": "Channel 2"
         }
@@ -1127,13 +848,13 @@
       "tableColumn": "",
       "targets": [
         {
-          "alias": "[[channels]] ($tag_alias)",
+          "alias": "[[channels]]",
           "groupBy": [],
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"value\") FROM \"measurement\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": false,
+          "query": "SELECT last(\"temp\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1212,11 +933,11 @@
       "renderer": "flot",
       "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617378354744,
+      "repeatIteration": 1617401350612,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
-          "selected": false,
+          "selected": true,
           "text": "Channel 2",
           "value": "Channel 2"
         }
@@ -1227,7 +948,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "[[channels]] ($tag_alias)",
+          "alias": "$tag_alias",
           "groupBy": [
             {
               "params": [
@@ -1246,7 +967,7 @@
           "measurement": "/^$channels$/",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"temp\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT mean(\"temp\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1267,7 +988,7 @@
           "tags": []
         },
         {
-          "alias": "[[channels]] ($tag_alias) Max",
+          "alias": "$tag_alias (max)",
           "groupBy": [
             {
               "params": [
@@ -1284,7 +1005,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"max\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT median(\"max\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -1305,7 +1026,7 @@
           "tags": []
         },
         {
-          "alias": "[[channels]] ($tag_alias) Min",
+          "alias": "$tag_alias (min)",
           "groupBy": [
             {
               "params": [
@@ -1322,7 +1043,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT median(\"min\") FROM /^$channels$/ WHERE $timeFilter GROUP BY time(30s), \"alias\" fill(null)",
+          "query": "SELECT median(\"min\") FROM \"Temperature\" WHERE $timeFilter AND \"channel\" = '$channels'  GROUP BY time(30s), \"alias\" fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -1386,7 +1107,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "30s",
   "schemaVersion": 21,
   "style": "dark",
   "tags": [],
@@ -1395,36 +1116,75 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "tags": [],
-          "text": "All",
+          "text": "Channel 1 + Channel 2",
           "value": [
-            "$__all"
+            "Channel 1",
+            "Channel 2"
           ]
         },
-        "datasource": "InfluxDB",
-        "definition": "SHOW TAG VALUES WITH KEY = \"channel\"",
         "hide": 0,
         "includeAll": true,
         "label": "Channels",
         "multi": true,
         "name": "channels",
-        "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"channel\"",
-        "refresh": 1,
-        "regex": "",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "Channel 1",
+            "value": "Channel 1"
+          },
+          {
+            "selected": true,
+            "text": "Channel 2",
+            "value": "Channel 2"
+          },
+          {
+            "selected": false,
+            "text": "Channel 3",
+            "value": "Channel 3"
+          },
+          {
+            "selected": false,
+            "text": "Channel 4",
+            "value": "Channel 4"
+          },
+          {
+            "selected": false,
+            "text": "Channel 5",
+            "value": "Channel 5"
+          },
+          {
+            "selected": false,
+            "text": "Channel 6",
+            "value": "Channel 6"
+          },
+          {
+            "selected": false,
+            "text": "Channel 7",
+            "value": "Channel 7"
+          },
+          {
+            "selected": false,
+            "text": "Channel 8",
+            "value": "Channel 8"
+          }
+        ],
+        "query": "Channel 1,Channel 2,Channel 3,Channel 4,Channel 5,Channel 6,Channel 7,Channel 8",
         "skipUrlSync": false,
-        "sort": 5,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "2021-04-01T18:23:21.331Z",
-    "to": "2021-04-01T19:10:44.582Z"
+    "from": "now-30m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1443,5 +1203,5 @@
   "timezone": "",
   "title": "Wlanthermo Nano",
   "uid": "7ORXEd6Wk",
-  "version": 7
+  "version": 14
 }
