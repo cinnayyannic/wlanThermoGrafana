@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	python3 \
 	python3-pip \
-	supervisor \
-	libfontconfig \
-	libwebsockets8 \
-	libwrap0
+	supervisor
+	#libfontconfig \
+	#libwebsockets8 \
+	#libwrap0
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
 	dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && \
