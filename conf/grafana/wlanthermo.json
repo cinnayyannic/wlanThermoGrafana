@@ -16,21 +16,38 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1617725055926,
+  "iteration": 1617922340326,
   "links": [],
   "panels": [
     {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 33,
+      "panels": [],
+      "title": "Global",
+      "type": "row"
+    },
+    {
       "columns": [],
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "fontSize": "90%",
       "gridPos": {
         "h": 5,
         "w": 4,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 9,
-      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -40,6 +57,7 @@
       "styles": [
         {
           "alias": "Time",
+          "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "pattern": "Time",
           "type": "hidden"
@@ -134,39 +152,31 @@
       "title": "System",
       "transform": "timeseries_to_rows",
       "transparent": true,
-      "type": "table"
+      "type": "table-old"
     },
     {
       "cacheTimeout": null,
       "datasource": null,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 4,
-        "y": 0
-      },
-      "id": 7,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "min"
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
           ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": [
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
                 "color": "red",
                 "value": null
@@ -179,17 +189,34 @@
                 "color": "green",
                 "value": 40
               }
-            ],
-            "unit": "percent"
+            ]
           },
-          "override": {},
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 7,
+      "links": [],
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "6.5.3",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "groupBy": [],
@@ -226,34 +253,26 @@
     {
       "cacheTimeout": null,
       "datasource": null,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 8,
-        "y": 0
-      },
-      "id": 11,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "min"
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
           ],
-          "defaults": {
-            "decimals": 0,
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": -120,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": [
+          "max": 0,
+          "min": -120,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
                 "color": "red",
                 "value": null
@@ -266,17 +285,34 @@
                 "color": "green",
                 "value": -67
               }
-            ],
-            "unit": "dBm"
+            ]
           },
-          "override": {},
+          "unit": "dBm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 11,
+      "links": [],
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "6.5.3",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "groupBy": [],
@@ -312,11 +348,15 @@
     },
     {
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 5,
         "w": 7,
         "x": 17,
-        "y": 0
+        "y": 1
       },
       "id": 17,
       "limit": 1000,
@@ -324,7 +364,6 @@
       "navigateBefore": "5m",
       "navigateToPanel": false,
       "onlyFromThisDashboard": false,
-      "options": {},
       "showTags": true,
       "showTime": true,
       "showUser": false,
@@ -379,13 +418,19 @@
       "dashes": false,
       "datasource": null,
       "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 2,
@@ -404,9 +449,10 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -505,6 +551,20 @@
       }
     },
     {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 49,
+      "panels": [],
+      "title": "Channels",
+      "type": "row"
+    },
+    {
       "cacheTimeout": null,
       "colorBackground": false,
       "colorValue": false,
@@ -515,6 +575,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -527,7 +591,7 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 15
+        "y": 17
       },
       "id": 13,
       "interval": null,
@@ -546,7 +610,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -607,7 +670,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -627,13 +689,19 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 15
+        "y": 17
       },
       "hiddenSeries": false,
       "id": 4,
@@ -655,9 +723,10 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -845,6 +914,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -857,9 +930,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 20
+        "y": 22
       },
-      "id": 18,
+      "id": 50,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -876,7 +949,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -888,9 +960,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -939,7 +1010,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -959,16 +1029,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 20
+        "y": 22
       },
       "hiddenSeries": false,
-      "id": 25,
+      "id": 57,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -987,15 +1063,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -1179,6 +1255,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -1191,9 +1271,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 25
+        "y": 27
       },
-      "id": 19,
+      "id": 51,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1210,7 +1290,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1222,9 +1301,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -1273,7 +1351,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -1293,16 +1370,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 25
+        "y": 27
       },
       "hiddenSeries": false,
-      "id": 26,
+      "id": 58,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1321,15 +1404,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -1513,6 +1596,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -1525,9 +1612,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 30
+        "y": 32
       },
-      "id": 20,
+      "id": 52,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1544,7 +1631,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1556,9 +1642,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -1607,7 +1692,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -1627,16 +1711,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 30
+        "y": 32
       },
       "hiddenSeries": false,
-      "id": 27,
+      "id": 59,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1655,15 +1745,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -1847,6 +1937,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -1859,9 +1953,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 35
+        "y": 37
       },
-      "id": 21,
+      "id": 53,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1878,7 +1972,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1890,9 +1983,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -1941,7 +2033,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -1961,16 +2052,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 35
+        "y": 37
       },
       "hiddenSeries": false,
-      "id": 28,
+      "id": 60,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -1989,15 +2086,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -2181,6 +2278,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -2193,9 +2294,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 40
+        "y": 42
       },
-      "id": 22,
+      "id": 54,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2212,7 +2313,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2224,9 +2324,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -2275,7 +2374,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -2295,16 +2393,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 40
+        "y": 42
       },
       "hiddenSeries": false,
-      "id": 29,
+      "id": 61,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2323,15 +2427,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -2515,6 +2619,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -2527,9 +2635,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 45
+        "y": 47
       },
-      "id": 23,
+      "id": 55,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2546,7 +2654,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2558,9 +2665,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -2609,7 +2715,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -2629,16 +2734,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 45
+        "y": 47
       },
       "hiddenSeries": false,
-      "id": 30,
+      "id": 62,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2657,15 +2768,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -2849,6 +2960,10 @@
       ],
       "datasource": null,
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "celsius",
       "gauge": {
         "maxValue": 100,
@@ -2861,9 +2976,9 @@
         "h": 5,
         "w": 3,
         "x": 0,
-        "y": 50
+        "y": 52
       },
-      "id": 24,
+      "id": 56,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -2880,7 +2995,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2892,9 +3006,8 @@
           "to": "null"
         }
       ],
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 13,
       "scopedVars": {
         "channels": {
@@ -2943,7 +3056,6 @@
       "thresholds": "0,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "type": "singlestat",
       "valueFontSize": "110%",
       "valueMaps": [
@@ -2963,16 +3075,22 @@
       "datasource": null,
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 21,
         "x": 3,
-        "y": 50
+        "y": 52
       },
       "hiddenSeries": false,
-      "id": 31,
+      "id": 63,
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -2991,15 +3109,15 @@
       "maxPerRow": 3,
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "repeat": null,
       "repeatDirection": "v",
-      "repeatIteration": 1617725055926,
+      "repeatIteration": 1617922340326,
       "repeatPanelId": 4,
       "scopedVars": {
         "channels": {
@@ -3173,8 +3291,8 @@
       }
     }
   ],
-  "refresh": false,
-  "schemaVersion": 21,
+  "refresh": "5s",
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3189,6 +3307,8 @@
             "$__all"
           ]
         },
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Channels",
@@ -3268,5 +3388,5 @@
   "timezone": "",
   "title": "Wlanthermo Nano",
   "uid": "7ORXEd6Wk",
-  "version": 1
+  "version": 3
 }
