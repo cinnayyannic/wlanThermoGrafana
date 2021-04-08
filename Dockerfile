@@ -53,7 +53,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Influxdb configuration file
-COPY conf/influxdb/config.yaml /etc/influxdb/config.yaml
+COPY conf/influxdb/config.toml /etc/influxdb/config.toml
 
 # Mosquitto configuration file
 COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
