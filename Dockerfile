@@ -11,9 +11,9 @@ EXPOSE 1883
 # /var/lib/mosquitto <- for persistant mqtt database storage
 
 # Tools
-ENV INFLUXDB_VERSION=1.7.10
+ENV INFLUXDB_VERSION=2.0.4
 ENV GRAFANA_VERSION=7.5.3
-ENV MOSQUITTO_VERSION=1.5.7-1+deb10u1
+ENV MOSQUITTO_VERSION=2.0.9-1
 ENV WLANTHERMOGRAFANABRIDGE_VERSION=1.0.6
 
 RUN apt-get update && apt-get install -y \
@@ -27,9 +27,9 @@ RUN apt-get update && apt-get install -y \
 	#libwebsockets8 \
 	#libwrap0
 
-RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
-	dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && \
-	rm influxdb_${INFLUXDB_VERSION}_amd64.deb && \
+RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
+	dpkg -i influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
+	rm influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
 	wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb && \
 	dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && \
 	rm grafana_${GRAFANA_VERSION}_amd64.deb && \
