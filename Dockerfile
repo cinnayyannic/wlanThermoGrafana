@@ -13,7 +13,7 @@ EXPOSE 1883
 # Tools
 ENV INFLUXDB_VERSION=2.0.4
 ENV GRAFANA_VERSION=7.5.3
-ENV MOSQUITTO_VERSION=1.5.7-1+deb10u1
+ENV MOSQUITTO_VERSION=1.6.9-1
 ENV WLANTHERMOGRAFANABRIDGE_VERSION=1.0.6
 
 RUN apt-get update && apt-get install -y \
@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 	python3-pip \
 	supervisor \
 	libfontconfig1 \
-	libwebsockets8 \
+	libwebsockets15 \
 	libwrap0
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
@@ -33,7 +33,7 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSIO
 	wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb && \
 	dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && \
 	rm grafana_${GRAFANA_VERSION}_amd64.deb && \
-	wget http://ftp.br.debian.org/debian/pool/main/m/mosquitto/mosquitto_${MOSQUITTO_VERSION}_amd64.deb && \
+	wget http://ports.ubuntu.com/pool/universe/m/mosquitto/mosquitto_${MOSQUITTO_VERSION}_arm64.deb && \
 	dpkg -i mosquitto_${MOSQUITTO_VERSION}_amd64.deb && \
 	rm mosquitto_${MOSQUITTO_VERSION}_amd64.deb
 
@@ -51,7 +51,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY conf/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Influxdb configuration file
-COPY conf/influxdb/influxdb.conf /etc/influxdb/influxdb.conf
+COPY conf/influxdb/config.yaml /etc/influxdb/config.yaml
 
 # Mosquitto configuration file
 COPY conf/mosquitto/mosquitto.conf /etc/mosquitto/mosquitto.conf
