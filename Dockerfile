@@ -33,9 +33,9 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSIO
 	wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb && \
 	dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && \
 	rm grafana_${GRAFANA_VERSION}_amd64.deb && \
-	wget http://ports.ubuntu.com/pool/universe/m/mosquitto/mosquitto_${MOSQUITTO_VERSION}_arm64.deb && \
-	dpkg -i mosquitto_${MOSQUITTO_VERSION}_arm64.deb && \
-	rm mosquitto_${MOSQUITTO_VERSION}_arm64.deb
+	wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mosquitto/mosquitto_${MOSQUITTO_VERSION}_amd64.deb && \
+	dpkg -i mosquitto_${MOSQUITTO_VERSION}_amd64.deb && \
+	rm mosquitto_${MOSQUITTO_VERSION}_amd64.deb
 
 RUN git clone https://github.com/cinnayyannic/wlanThermoGrafanaBridge.git && \
 	cd wlanThermoGrafanaBridge && \
