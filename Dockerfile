@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	python3 \
 	python3-pip \
-	supervisor
-	#libfontconfig \
+	supervisor \
+	libfontconfig1
 	#libwebsockets8 \
 	#libwrap0
 
