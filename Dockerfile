@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
 	python3 \
 	python3-pip \
 	supervisor \
+	libfontconfig1 \
 	libdlt2 \
 	libwebsockets15 \
 	libwrap0
