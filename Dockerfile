@@ -26,10 +26,8 @@ RUN apt-get update && apt-get install -y \
 	libcjson1 \
 	libmosquitto1 \
 	libdlt2 \
-	libwebsockets16 \
+	libwebsockets \
 	libwrap0
-	#libwebsockets8 \
-	#libwrap0
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
 	dpkg -i influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
