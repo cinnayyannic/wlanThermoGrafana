@@ -13,7 +13,7 @@ EXPOSE 1883
 # Tools
 ENV INFLUXDB_VERSION=2.0.4
 ENV GRAFANA_VERSION=7.5.3
-ENV MOSQUITTO_VERSION=2.0.9-1
+ENV MOSQUITTO_VERSION=1.6.9-1
 ENV WLANTHERMOGRAFANABRIDGE_VERSION=1.0.6
 
 RUN apt-get update && apt-get install -y \
@@ -23,10 +23,8 @@ RUN apt-get update && apt-get install -y \
 	python3 \
 	python3-pip \
 	supervisor \
-	libcjson1 \
-	libmosquitto1 \
 	libdlt2 \
-	libwebsockets \
+	libwebsockets15 \
 	libwrap0
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
