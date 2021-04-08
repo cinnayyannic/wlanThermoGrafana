@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y \
 	supervisor \
 	libfontconfig1 \
 	libwebsockets15 \
-	libwrap0
+	libwrap0 \
+	libdlt2
 
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
 	dpkg -i influxdb2-${INFLUXDB_VERSION}-amd64.deb && \
